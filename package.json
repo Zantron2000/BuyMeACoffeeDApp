@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Zantron2000/BuyMeACoffeeDApp/issues"
   },
-  "homepage": "https://github.com/Zantron2000/BuyMeACoffeeDApp#readme"
+  "homepage": "https://github.com/Zantron2000/BuyMeACoffeeDApp#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.0",
+    "chai": "^4.3.6",
+    "hardhat": "^2.11.2"
+  }
 }
