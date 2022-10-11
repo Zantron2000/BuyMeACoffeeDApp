@@ -19,6 +19,7 @@ async function printBalances(addresses) {
   let idx = 0;
   for (const address of addresses) {
     console.log(`Address ${idx} balance: `, await getBalance(address))
+    idx++;
   }
 }
 
@@ -52,14 +53,26 @@ async function main() {
   await printBalances(addresses)
 
   // Buy the owner a few coffees
+  const tip = {value: hre.ethers.utils.parseEther("1")};
+  await buyMeACoffee.connect(tipper).buyCoffee("John", "Here's to you!", tip);
+  await buyMeACoffee.connect(tipper2).buyCoffee("Carolina", "Wow excellent!", tip);
+  await buyMeACoffee.connect(tipper3).buyCoffee("Vitto", "Good work!", tip);
 
   // Check balances after coffee purchases
+  console.log("== Bought Coffee ==")
+  await printBalances(addresses)
 
   // Withdraw funds
+  await buyMeACoffee.connect(owner).withdrawTips();
 
   // Check balance after withdraw
+  console.log("== Withdrawn Tips ==")
+  await printBalances(addresses)
 
   // Read all the memos left for the owner
+  console.log("== Memos ==")
+  const memos = await buyMeACoffee.getMemos();
+  printMemos(memos)
 }
 
 // We recommend this pattern to be able to use async/await everywhere
