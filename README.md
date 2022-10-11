@@ -1,13 +1,9 @@
-# Sample Hardhat Project
+This is a basic DApp using hardhat and next.js
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+It is an application that is used to deploy an address with a contract
+to collect tips from users, and a front end server that allows users to interact,
+and send money to owners. The backend also contains one more script that allows the owner
+to withdraw the money back to themselves.
 
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
-```
+Execute any of the backend commands by running npx hardhat run -script- on any of the backend scripts
+Turn on the server by entering npm run dev inside the frontend folder
